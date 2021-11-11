@@ -1,0 +1,10 @@
+i{
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding:5px
+} 
+i:hover{
+    background-color: rgb(3, 3, 3);
+    color: rgb(236, 244, 245);
+}

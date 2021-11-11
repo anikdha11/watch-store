@@ -1,0 +1,13 @@
+.img-style{
+    width: 350px ;
+    opacity:0.1
+}
+.img-style:hover{
+   opacity: 0.4;
+}
+
+#btn:hover{
+color: rgb(19, 169, 228);
+font-weight: 600;
+
+}
