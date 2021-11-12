@@ -1,6 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './contexts/AuthProvider';
+import AddToCart from './Pages/AddToCart/AddToCart';
+import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/home/Home';
 import Footer from './Pages/Home/Shared/Footer/Footer';
 import Navegation from './Pages/Home/Shared/Header/Navegation';
@@ -20,6 +22,12 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/product/:nameId">
+         <AddToCart></AddToCart>
+          </Route>
+          <Route path="/explore">
+       <Explore></Explore>
           </Route>
           <Route path="/login">
             <Login></Login>

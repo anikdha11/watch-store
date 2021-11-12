@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Button, Container, Typography } from '@mui/material';
 import "./Banner.css"
+import { Link } from 'react-router-dom';
 
 const img = "https://image.freepik.com/free-photo/top-view-clock-time_1150-6704.jpg"
 
@@ -18,7 +19,8 @@ const verticalCenter = {
 }
 
 
-const Banner = () => {
+const Banner = ({ id }) => {
+    console.log(id)
     return (
         <Container style={bannerBg} sx={{ flexGrow: 1, p: 2 }}>
             <Grid container spacing={2}>
@@ -31,7 +33,7 @@ const Banner = () => {
                         <Typography variant="h6" >
 
                         </Typography>
-                        <Button id="btn" color="secondary" aria-label="medium secondary button group" style={{ backgroundColor: 'white' }}>Explore</Button>
+                        <Link to="/explore"> <Button id="btn" color="secondary" aria-label="medium secondary button group" style={{ backgroundColor: 'white' }}>Explore</Button></Link>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} style={verticalCenter} >
