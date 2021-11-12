@@ -8,6 +8,7 @@ import Footer from './Pages/Home/Shared/Footer/Footer';
 import Navegation from './Pages/Home/Shared/Header/Navegation';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Login/Register/Register';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/product/:nameId">
+          <PrivateRoute path="/product/:nameId">
          <AddToCart></AddToCart>
-          </Route>
+          </PrivateRoute>
           <Route path="/explore">
        <Explore></Explore>
           </Route>

@@ -11,17 +11,17 @@ const Explore = () => {
     }, [])
     return (
         <Container>
-                <Typography id="btn" variant="h3" sx={{ color: "success.main", mt: 2, mb: 2 }}>All WATCHES</Typography >
+            <Typography id="btn" variant="h5" sx={{ color: "success.main", mt: 2, mb: 2 }}>All WATCHES</Typography >
 
-                <Grid container spacing={2} sx={{ mx: 0 }}>
+            <Grid container spacing={2} sx={{ mx: 0 }}>
 
-                    {
-                        products.map(product => <Product
-                            key={product._id}
-                            product={product}></Product>)
-                    }
-                </Grid>
-            </Container>
+                {
+                    products.map(product => <Product
+                        key={product._id}
+                        product={product}></Product>)
+                }
+            </Grid>
+        </Container>
     );
 };
 

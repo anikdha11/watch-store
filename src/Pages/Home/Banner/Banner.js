@@ -19,8 +19,8 @@ const verticalCenter = {
 }
 
 
-const Banner = ({ id }) => {
-    console.log(id)
+const Banner = () => {
+
     return (
         <Container style={bannerBg} sx={{ flexGrow: 1, p: 2 }}>
             <Grid container spacing={2}>
