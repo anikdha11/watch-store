@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { Button, Container, Typography } from '@mui/material';
 import "./Banner.css"
 
-const img = "https://image.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2150.jpg"
+const img = "https://image.freepik.com/free-photo/top-view-clock-time_1150-6704.jpg"
 
 const bannerBg = {
     background: `url(${img})`,
@@ -35,7 +35,7 @@ const Banner = () => {
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} style={verticalCenter} >
-                    <img className="img-style" src="https://image.freepik.com/free-vector/smart-watch-cartoon-vector-icon-illustration-technology-object-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3667.jpg" alt="" />
+                    <img className="img-style" src="https://image.freepik.com/free-psd/smartwatch-mockup-three_23-2147862181.jpg" alt="" />
 
                 </Grid>
             </Grid>

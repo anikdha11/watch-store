@@ -8,32 +8,32 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 const Product = ({ product }) => {
-    const { name, img, description } = product;
+    const { name, img, description,price } = product;
     return (
         <>
             <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ maxWidth: 345}}>
-                <CardMedia
-                   
-                    sx={{alignItems:'center'}}
-                    component="img"
-                    alt="green iguana"
-                    height="140"
-                    image={img}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                   {description}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">$25</Button>
-                    <Button size="small">Add To Cart</Button>
-                </CardActions>
-            </Card>
+                <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+
+                        sx={{ alignItems: 'center' }}
+                        component="img"
+                        alt="green iguana"
+                        height="140"
+                        image={img}
+                    />
+                    <CardContent id="btn">
+                        <Typography  gutterBottom variant="h5" component="div">
+                            {name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {description}
+                        </Typography>
+                    </CardContent>
+                    <CardActions  sx={{mb:2}}>
+                        <Button size="small">{price}</Button>
+                        <Button variant="contained" size="small">Add To Cart</Button>
+                    </CardActions>
+                </Card>
             </Grid>
         </>
     );

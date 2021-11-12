@@ -7,9 +7,11 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
+import useFirebase from '../../../../hooks/useFirebase';
 
 
 const Navegation = () => {
+const {user,logOut} = useFirebase()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -29,7 +31,8 @@ const Navegation = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">Home</NavLink>
           </Typography>
-          <NavLink to="/login"><Button sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>
+          { user?.email? <Box><Button onClick={logOut} sx={{ fontWeight: 700, color: 'white' }} color="inherit">LogOut</Button> <span id="btn">{user.displayName}</span></Box>:
+            <NavLink  style={{textDecoration:"none"}} to="/login"><Button sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>}
         </Toolbar>
       </AppBar>
     </Box>
