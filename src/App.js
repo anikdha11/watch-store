@@ -9,6 +9,7 @@ import Navegation from './Pages/Home/Shared/Header/Navegation';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Login/Register/Register';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import MyOrders from './Pages/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/myorders">
+            <MyOrders></MyOrders>
           </Route>
           <Route path="/Register">
            <Register></Register>

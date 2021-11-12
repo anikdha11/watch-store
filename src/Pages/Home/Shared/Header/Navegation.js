@@ -14,7 +14,7 @@ const Navegation = () => {
   const { user, logOut } = useFirebase()
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{bgcolor:'success.main'}} position="static">
+      <AppBar sx={{ bgcolor: 'success.main' }} position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -34,7 +34,9 @@ const Navegation = () => {
           </NavLink>
           {
             user?.email && <Box>
-              <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">My orders</Button>
+              <NavLink style={{ textDecoration: "none" }} to="/myorders"> 
+                <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">My orders</Button>
+              </NavLink>
               <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Reviwe</Button>
               <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Pay</Button>
             </Box>
