@@ -48,9 +48,11 @@ const Login = () => {
                             name="password"
                             onBlur={handleOnChange}
                             variant="standard" />
-                        <Button sx={{ width: '50%', m: 1 }} type="submit" variant="contained">Login</Button>
+                        <Button sx={{ width: '50%', m: 1,bgcolor: 'success.main',fontWeight:"500" }} type="submit" orientation="vertical"
+                            variant="contained">Login</Button>
                         <br />
                         <NavLink style={{ textDecoration: 'none' }} to="/register"><Button>New user? Please Register</Button></NavLink>
+                        <br />
                         {isLoading && <CircularProgress />}
                         {user?.email && <Alert serverity="success"> User login successfully</Alert>}
                         {
