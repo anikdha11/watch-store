@@ -12,8 +12,7 @@ const AddToCart = () => {
     const { user } = useAuth()
 
     const onSubmit = data => {
-        console.log(data);
-        axios.post('http://localhost:5000/', data)
+        axios.post('https://secret-badlands-82308.herokuapp.com/order', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submit successfully');
@@ -26,7 +25,7 @@ const AddToCart = () => {
     const [single, setSingle] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${nameId}`)
+        fetch(`https://secret-badlands-82308.herokuapp.com/products/${nameId}`)
             .then(res => res.json())
             .then(data => setSingle(data))
     }, [])

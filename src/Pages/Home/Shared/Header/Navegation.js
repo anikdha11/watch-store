@@ -37,7 +37,9 @@ const Navegation = () => {
               <NavLink style={{ textDecoration: "none" }} to="/myorders"> 
                 <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">My orders</Button>
               </NavLink>
-              <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Reviwe</Button>
+              <NavLink style={{ textDecoration: "none" }} to="/review"> 
+                <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Review</Button>
+              </NavLink>
               <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Pay</Button>
             </Box>
           }
