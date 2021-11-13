@@ -10,6 +10,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Login/Register/Register';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import MyOrders from './Pages/MyOrders/MyOrders';
+import Payment from './Pages/payment/Payment';
 import Review from './Pages/Reviwe/Review';
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <PrivateRoute path="/myorders">
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/payment">
+           <Payment></Payment>
           </PrivateRoute>
           <Route path="/Register">
            <Register></Register>
