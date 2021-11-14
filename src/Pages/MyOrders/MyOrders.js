@@ -42,10 +42,10 @@ const MyOrders = () => {
             <Typography id="btn" sx={{color:"pink"}} variant="h3">My Orders</Typography>
 
             {
-                orders.map(order => <Container  key={order._id}>
+                orders.map(order => <Container key={order._id}>
                     
                     <Box sx={{ mb:2,mt:4,mx:'auto'}} >
-                    <Box sx={{border:"1px solid gray"}}>
+                    <Box sx={{border:"1px solid gray",mb:5}}>
                     <Typography id="btn" sx={{color:"pink"}} variant="h5">{order.watchName}</Typography>
                     <Typography id="btn" sx={{color:"gray"}} variant="h5">{order.name}</Typography>
                     <Typography id="btn" sx={{color:"gray"}} variant="body1">{order.email}</Typography>

@@ -4,9 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Box } from '@mui/system';
 import { Container } from '@mui/material';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
@@ -46,17 +44,14 @@ const Review = () => {
                 </form>
             </Box>
             <Box>
-            <h1 id="btn">Reviews here</h1>
+                <h1 id="btn">Reviews here</h1>
                 {
-                    reviews.map(review => <Box 
+                    reviews.map(review => <Box
                         key={review._id}>
-                        <Card sx={{ minWidth: 275 }}>
+                        <Card sx={{ minWidth: 275, mb: 3 }}>
                             <CardContent>
                                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                     {review.name}
-                                </Typography>
-                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                    adjective
                                 </Typography>
                                 <Typography variant="body2">
                                     {review.description}

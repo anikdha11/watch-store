@@ -5,14 +5,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../../../../hooks/useFirebase';
 import List4 from '../../../List/List4';
+import useAuth from '../../../../hooks/useAuth';
 
 
 const Navegation = () => {
-  const { user, logOut } = useFirebase()
+  const { user, logOut,admin } = useAuth()
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar sx={{ bgcolor: 'success.main' }} position="static">
@@ -33,9 +33,14 @@ const Navegation = () => {
               Watches Store
             </Typography>}
 
-          <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">
-            <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Home</Button>
-          </NavLink>
+         {admin ?
+          <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/admin">
+            <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Admin</Button>
+          </NavLink>:
+           <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">
+           <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Home</Button>
+         </NavLink>
+          }
           {user?.email ? <Box><Button onClick={logOut} id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">LogOut</Button> <span id="btn">{user.displayName}</span></Box> :
             <NavLink style={{ textDecoration: "none" }} to="/login"><Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>}
         </Toolbar>

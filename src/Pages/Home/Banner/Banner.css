@@ -3,7 +3,7 @@
     opacity:0
 }
 .img-style:hover{
-   opacity: 0.9;
+   opacity:1;
    border-radius: 10px;
    border-top: 15px double goldenrod;
    border-bottom: 15px double goldenrod;

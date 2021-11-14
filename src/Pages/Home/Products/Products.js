@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Product from './product/Product';
 import Grid from '@mui/material/Grid';
-import { Container, Typography } from '@mui/material';
+import { CircularProgress, Container, Typography } from '@mui/material';
+import useAuth from '../../../hooks/useAuth';
 
 
 // const products = [
@@ -95,16 +96,20 @@ import { Container, Typography } from '@mui/material';
 
 const Products = () => {
     const [products, setProducts] = useState([])
+    const {isLoading } = useAuth();
+ 
     useEffect(() => {
         fetch("https://secret-badlands-82308.herokuapp.com/products")
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [isLoading])
+   
 
     return (
         <Container>
+                 
             <Typography id="btn" variant="h3" sx={{ color: "success.main", mt: 2, mb: 2 }}>WATCHES</Typography >
-
+            {isLoading && <CircularProgress/>}
             <Grid container spacing={2} sx={{ mx: 0 }}>
 
                 {

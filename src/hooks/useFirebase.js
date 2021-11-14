@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getAuth,signInWithPopup,updateProfile ,GoogleAuthProvider, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, updateProfile, GoogleAuthProvider, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import intilizationFirebase from "../Pages/Login/Login/Firebase/Firebase.init";
 
 //intilization firebase app
@@ -9,26 +9,28 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true)
   const [authError, setAuthError] = useState('')
+  const [admin, setAdmin] = useState(false);
+
   const auth = getAuth();
-const googleProvider = new GoogleAuthProvider() 
-  const registerUser = (email, password,name,history) => {
+  const googleProvider = new GoogleAuthProvider()
+  const registerUser = (email, password, name, history) => {
     setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError('')
-        const newUser = {email, displayName:name};
+        const newUser = { email, displayName: name };
         setUser(newUser);
-        //save user to database
-        // saveUser(email,name,"POST")
-        //send name to firebase after creation
+        // save user to database
+        saveUser(email, name, "POST")
+        // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name
         }).then(() => {
           history.replace('/')
         }).catch((error) => {
-         
+
         });
-       
+
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -36,7 +38,7 @@ const googleProvider = new GoogleAuthProvider()
       })
       .finally(() => setIsLoading(false));
   }
-  const loginUser = (email, password,location, history) => {
+  const loginUser = (email, password, location, history) => {
     setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -51,18 +53,18 @@ const googleProvider = new GoogleAuthProvider()
       .finally(() => setIsLoading(false));;
   }
 
-  const signInWithGoogle = (location,history) =>{
+  const signInWithGoogle = (location, history) => {
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
-    .then((result) => {
-      const user = result.user;
-      // saveUser(user.email,user.displayName,"PUT")
-      const destination = location?.state?.from || '/'
-      history.replace(destination);
-             setAuthError('')
-    }).catch((error) => {
-      setAuthError(error.message);
-    }).finally(() => setIsLoading(false));
+      .then((result) => {
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT")
+        const destination = location?.state?.from || '/'
+        history.replace(destination);
+        setAuthError('')
+      }).catch((error) => {
+        setAuthError(error.message);
+      }).finally(() => setIsLoading(false));
   }
 
   useEffect(() => {
@@ -75,7 +77,13 @@ const googleProvider = new GoogleAuthProvider()
       setIsLoading(false);
     });
     return () => unsubscribe;
-  }, [])
+  }, [auth])
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users${user.email}`)
+      .then(res => res.json())
+      .then(data => setAdmin(data.admin))
+  }, [user.email])
 
   const logOut = () => {
     const auth = getAuth();
@@ -88,22 +96,22 @@ const googleProvider = new GoogleAuthProvider()
 
   }
 
-  // const saveUser = (email,displayName,method) =>{
-
-  //   const user = {email,displayName}
-  //   fetch('http://localhost:5000/users',{
-  //     method: method ,
-  //     headers:{
-  //       'content-type' : 'application/json'
-  //     },
-  //     body: JSON.stringify(user)
-  //   })
-  //   .then()
-  // }
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName }
+    fetch('http://localhost:5000/users', {
+      method: method,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then()
+  }
 
 
   return {
     user,
+    admin,
     isLoading,
     authError,
     logOut,

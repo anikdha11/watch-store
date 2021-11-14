@@ -53,7 +53,7 @@ const Login = () => {
                         <br />
                         <NavLink style={{ textDecoration: 'none' }} to="/register"><Button>New user? Please Register</Button></NavLink>
                         <br />
-                        {isLoading && <CircularProgress />}
+                        {isLoading && <CircularProgress color="success" />}
                         {user?.email && <Alert serverity="success"> User login successfully</Alert>}
                         {
                             authError && <Alert serverity="error">{authError}</Alert>}
