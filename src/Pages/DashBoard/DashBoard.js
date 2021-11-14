@@ -32,7 +32,7 @@ const drawerWidth = 200;
 function DashBoard(props) {
     const { window } = props;
     let { path, url } = useRouteMatch();
-    const {admin,user} = useAuth()
+    const { admin, user, logOut } = useAuth()
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -43,15 +43,17 @@ function DashBoard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link style={{ textDecoration: "none", color: 'red'}} to="/home"><Button color="inherit">Home</Button></Link> <br />
-           {!admin && <Box><Link style={{ textDecoration: "red", color: 'pink' }} to="/myorders"><Button color="inherit">My Orders</Button></Link> <br />
-            <Link style={{ textDecoration: "none", color: 'red' }} to="/payment"><Button color="inherit">pay</Button></Link> <br /></Box>}
-            <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <Link style={{ textDecoration: "none", color: 'red' }} to="/home"><Button color="inherit">Home</Button></Link> <br />
+            {!admin && <Box>
+                <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+                <Link style={{ textDecoration: "red", color: 'red' }} to="/myorders"><Button color="inherit">My Orders</Button></Link> <br />
+                <Link style={{ textDecoration: "none", color: 'red' }} to="/payment"><Button color="inherit">pay</Button></Link> <br /></Box>}
+
             {admin && <Box>
-            <Link style={{ textDecoration: "none", color: 'red' }}  to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-            <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/manageAllOrders`}><Button color="inherit">Manage All Orders</Button></Link>
-            <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/addProducts`}><Button color="inherit">Add Products</Button></Link></Box>}
-            {user.email && <Box><Typography variant="h5" sx={{color:'goldenrod',fontWeight:700}}>{user.displayName}</Typography> <img style={{border:'2px solid gray',borderRadius:'50px',width:50}} src={user.photoURL} alt="" /> <br /><Button sx={{mt:1}} variant="contained">LogOut</Button> </Box>} 
+                <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
+                <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/manageAllOrders`}><Button color="inherit">Manage All Orders</Button></Link>
+                <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/addProducts`}><Button color="inherit">Add Products</Button></Link></Box>}
+            {user.email && <Box><Typography variant="h5" sx={{ color: 'goldenrod', fontWeight: 700 }}>{user.displayName}</Typography> <img style={{ border: '2px solid gray', borderRadius: '50px', width: 50 }} src={user.photoURL} alt="" /> <br /><Button onClick={logOut} sx={{ mt: 1 }} variant="contained">LogOut</Button> </Box>}
 
             {/* <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -132,16 +134,16 @@ function DashBoard(props) {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                       <DashBoardHome></DashBoardHome>
+                        <DashBoardHome></DashBoardHome>
                     </Route>
                     <Route path={`${path}/makeAdmin`}>
-                    <MakeAdmin></MakeAdmin>
+                        <MakeAdmin></MakeAdmin>
                     </Route>
                     <Route path={`${path}/manageAllOrders`}>
-                    <ManageAllOrders></ManageAllOrders>
+                        <ManageAllOrders></ManageAllOrders>
                     </Route>
                     <Route path={`${path}/addProducts`}>
-                    <AddProducts></AddProducts>
+                        <AddProducts></AddProducts>
                     </Route>
                 </Switch>
             </Box>

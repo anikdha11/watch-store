@@ -85,10 +85,12 @@ const useFirebase = () => {
       .then(data =>setAdmin(data.admin))
   }, [user.email])
 
-  const logOut = () => {
+  const logOut = (history,location) => {
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
+      const destination = location?.state?.from || '/'
+        history.replace(destination);
     }).catch((error) => {
       // An error happened.
     })
