@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Container, Grid, Typography, TextField, CircularProgress, Alert } from '@mui/material';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Navegation from '../../Home/Shared/Header/Navegation';
+import Footer from '../../Home/Shared/Footer/Footer';
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { loginUser, signInWithGoogle, user, isLoading, authError } = useAuth();
@@ -26,6 +28,8 @@ const Login = () => {
     }
 
     return (
+        <>
+        <Navegation></Navegation>
         <Container>
             <Grid container >
                 <Grid sx={{ mt: 5 }} item xs={12} md={12}>
@@ -62,6 +66,8 @@ const Login = () => {
                 </Grid>
             </Grid>
         </Container>
+        <Footer></Footer>
+        </>
     );
 };
 

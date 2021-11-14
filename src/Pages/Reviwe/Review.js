@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Box } from '@mui/system';
-import { Container } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -32,7 +32,7 @@ const Review = () => {
 
     return (
         <Container>
-            <h1 id="btn">Please Give Reviews</h1>
+            <Typography id="btn" sx={{fontWeight:500,fontSize:40,color:'orange'}} variant="h6">Please Give Reviews</Typography>
             <p></p>
             <Box>
                 <form className="" onSubmit={handleSubmit(onSubmit)}>
@@ -40,11 +40,13 @@ const Review = () => {
                     <input style={{ width: '50%' }}  {...register("name", { maxLength: 20 })} placeholder="name" />
                     <br />
                     <textarea style={{ width: '50%' }} {...register("description")} placeholder="Description" />
-                    <input style={{ width: '50%' }} id="btn" type="submit" />
+                    <br />
+                    <Button id="btn" variant="contained" sx={{mt:2}} type="submit">Submit</Button>
                 </form>
             </Box>
             <Box>
-                <h1 id="btn">Reviews here</h1>
+                <Typography id="btn" sx={{fontWeight:400,fontSize:40,color:'orange'}} variant="h6">Reviews here</Typography>
+
                 {
                     reviews.map(review => <Box
                         key={review._id}>

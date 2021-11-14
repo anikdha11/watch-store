@@ -2,6 +2,8 @@ import { Button, Container,Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth'
+import Footer from '../Home/Shared/Footer/Footer';
+import Navegation from '../Home/Shared/Header/Navegation';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([])
@@ -38,7 +40,9 @@ const MyOrders = () => {
 
 
     return (
-        <div>
+        <>
+        <Navegation></Navegation>
+        <Container>
             <Typography id="btn" sx={{color:"pink"}} variant="h3">My Orders</Typography>
 
             {
@@ -55,7 +59,9 @@ const MyOrders = () => {
 
                 </Container>)
             }
-        </div>
+        </Container>
+      <Footer></Footer>
+        </>
     );
 };
 

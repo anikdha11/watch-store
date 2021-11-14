@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField, Alert, Container } from '@mui/material';
-const Admin = () => {
+const MakeAdmin = () => {
 
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
@@ -49,4 +49,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default MakeAdmin;

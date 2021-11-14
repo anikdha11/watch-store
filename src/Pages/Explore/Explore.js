@@ -2,6 +2,8 @@ import { CircularProgress, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Product from '../Home/Products/product/Product';
+import Footer from '../Home/Shared/Footer/Footer';
+import Navegation from '../Home/Shared/Header/Navegation';
 
 const Explore = () => {
     const [products, setProducts] = useState([])
@@ -12,7 +14,9 @@ const Explore = () => {
             .then(data => setProducts(data))
     }, [])
     return (
+      <>  <Navegation></Navegation>
         <Container>
+         
             <Typography id="btn" variant="h5" sx={{ color: "success.main", mt: 2, mb: 5 }}>All WATCHES</Typography >
         {
             isLoading && <CircularProgress sx={{mb:4}} color="success"/>
@@ -26,6 +30,8 @@ const Explore = () => {
                 }
             </Grid>
         </Container>
+        <Footer></Footer>
+        </>
     );
 };
 

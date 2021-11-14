@@ -2,11 +2,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './contexts/AuthProvider';
 import AddToCart from './Pages/AddToCart/AddToCart';
-import Admin from './Pages/Admin/Admin';
+import DashBoard from './Pages/DashBoard/DashBoard';
 import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/home/Home';
-import Footer from './Pages/Home/Shared/Footer/Footer';
-import Navegation from './Pages/Home/Shared/Header/Navegation';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Login/Register/Register';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
@@ -21,7 +19,7 @@ function App() {
 
       <AuthProvider>
         <BrowserRouter>
-          <Navegation></Navegation>
+        
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -50,14 +48,14 @@ function App() {
             <Route path="/Register">
               <Register></Register>
             </Route>
-            <Route path="/admin">
-              <Admin></Admin>
+            <Route path="/dashboard">
+         <DashBoard></DashBoard>
             </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>
           </Switch>
-          <Footer></Footer>
+        
         </BrowserRouter>
       </AuthProvider>
 

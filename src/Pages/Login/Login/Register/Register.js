@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from "../../../../hooks/useAuth"
+import Footer from '../../../Home/Shared/Footer/Footer';
+import Navegation from '../../../Home/Shared/Header/Navegation';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -26,6 +28,8 @@ const Register = () => {
         e.preventDefault();
     }
     return (
+        <>
+        <Navegation></Navegation>
         <Container>
             <Grid container >
                 <Grid item sx={{ mt: 8 }} xs={12} md={12}>
@@ -77,6 +81,8 @@ const Register = () => {
                 </Grid>
             </Grid>
         </Container>
+        <Footer></Footer>
+        </>
     );
 };
 

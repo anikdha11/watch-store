@@ -1,9 +1,11 @@
-import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Home/Shared/Footer/Footer';
+import Navegation from '../Home/Shared/Header/Navegation';
 import "./AddToCart.css"
 
 const AddToCart = () => {
@@ -30,6 +32,8 @@ const AddToCart = () => {
             .then(data => setSingle(data))
     }, [])
     return (
+        <>
+        <Navegation></Navegation>
         <Container>
 
             <Grid sx={{mt:2,mb:5,alignItems: 'center'}} container spacing={0}>
@@ -56,20 +60,22 @@ const AddToCart = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
 
-                    <Typography id="btn">Please Confirmed Your Order</Typography>
+                    <Typography id="btn" sx={{color:'gray'}}>Please Confirmed Your Order</Typography>
                     <form className="" onSubmit={handleSubmit(onSubmit)}>
                         <input {...register("watchName", { maxLength: 30 })} placeholder="Watch name" />
                         <input value={user?.displayName} {...register("name", { maxLength: 20 })} placeholder="name" />
                         <input value={user?.email} {...register("email")} placeholder="email" />
                         <input {...register("address")} placeholder="address" />
                         <input type="number"{...register("Phone number", { min: 50 })} placeholder="Phone number" />
-                        <input id="btn" type="submit" />
+                        <Button type="submit" variant="contained">Add To Cart</Button>
                     </form>
 
                 </Grid>
 
             </Grid>
         </Container>
+        <Footer></Footer>
+        </>
     )
 };
 
