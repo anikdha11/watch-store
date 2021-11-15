@@ -6,6 +6,8 @@ import { Button, Container, Rating } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Footer from '../Home/Shared/Footer/Footer';
+import Navegation from '../Home/Shared/Header/Navegation';
 
 
 const Review = () => {
@@ -31,6 +33,8 @@ const Review = () => {
     }, [])
 
     return (
+        <>
+        <Navegation></Navegation>
         <Container>
             <Typography id="btn" sx={{ fontWeight: 500, fontSize: 40, color: 'orange' }} variant="h6">Please Give Reviews</Typography>
 
@@ -70,6 +74,8 @@ const Review = () => {
                 }
             </Box>
         </Container>
+        <Footer></Footer>
+        </>
     );
 };
 
