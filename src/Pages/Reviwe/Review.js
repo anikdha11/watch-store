@@ -60,7 +60,9 @@ const Review = () => {
                                 <Typography variant="body2">
                                     {review.description}
                                 </Typography>
-                                <Rating name="half-rating-read" defaultValue={review.ratings} precision={0.5} readOnly />
+                                <Typography>
+                                <Rating name="half-rating-read" defaultValue={review.ratings}  readOnly />
+                                </Typography>
                             </CardContent>
 
                         </Card>
