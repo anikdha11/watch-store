@@ -96,20 +96,20 @@ import useAuth from '../../../hooks/useAuth';
 
 const Products = () => {
     const [products, setProducts] = useState([])
-    const {isLoading } = useAuth();
- 
+    const { isLoading } = useAuth();
+
     useEffect(() => {
         fetch("https://secret-badlands-82308.herokuapp.com/products")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [isLoading])
-   
+
 
     return (
         <Container>
-                 
+
             <Typography id="btn" variant="h3" sx={{ color: "success.main", mt: 2, mb: 2 }}>WATCHES</Typography >
-            {isLoading && <CircularProgress/>}
+            {isLoading && <CircularProgress />}
             <Grid container spacing={2} sx={{ mx: 0 }}>
 
                 {

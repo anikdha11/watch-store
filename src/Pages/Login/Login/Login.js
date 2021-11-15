@@ -29,44 +29,44 @@ const Login = () => {
 
     return (
         <>
-        <Navegation></Navegation>
-        <Container>
-            <Grid container >
-                <Grid sx={{ mt: 5 }} item xs={12} md={12}>
-                    <Typography variant="body1" gutterBottom>
-                        Please Login
-                    </Typography>
-                    <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '50%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            onBlur={handleOnChange}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '50%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onBlur={handleOnChange}
-                            variant="standard" />
-                        <Button sx={{ width: '50%', m: 1,bgcolor: 'success.main',fontWeight:"500" }} type="submit" orientation="vertical"
-                            variant="contained">Login</Button>
-                        <br />
-                        <NavLink style={{ textDecoration: 'none' }} to="/register"><Button>New user? Please Register</Button></NavLink>
-                        <br />
-                        {isLoading && <CircularProgress color="success" />}
-                        {user?.email && <Alert serverity="success"> User login successfully</Alert>}
-                        {
-                            authError && <Alert serverity="error">{authError}</Alert>}
-                    </form>
-                    <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
+            <Navegation></Navegation>
+            <Container>
+                <Grid container >
+                    <Grid sx={{ mt: 5 }} item xs={12} md={12}>
+                        <Typography variant="body1" gutterBottom>
+                            Please Login
+                        </Typography>
+                        <form onSubmit={handleLoginSubmit}>
+                            <TextField
+                                sx={{ width: '50%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Email"
+                                name="email"
+                                onBlur={handleOnChange}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '50%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Password"
+                                type="password"
+                                name="password"
+                                onBlur={handleOnChange}
+                                variant="standard" />
+                            <Button sx={{ width: '50%', m: 1, bgcolor: 'success.main', fontWeight: "500" }} type="submit" orientation="vertical"
+                                variant="contained">Login</Button>
+                            <br />
+                            <NavLink style={{ textDecoration: 'none' }} to="/register"><Button>New user? Please Register</Button></NavLink>
+                            <br />
+                            {isLoading && <CircularProgress color="success" />}
+                            {user?.email && <Alert serverity="success"> User login successfully</Alert>}
+                            {
+                                authError && <Alert serverity="error">{authError}</Alert>}
+                        </form>
+                        <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Container>
-        <Footer></Footer>
+            </Container>
+            <Footer></Footer>
         </>
     );
 };

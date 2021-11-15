@@ -33,7 +33,7 @@ const Banner = () => {
                         <Typography variant="h6" >
 
                         </Typography>
-                        <Link style={{textDecoration:'none'}} to="/explore"> <Button id="btn" color="secondary" aria-label="medium secondary button group" style={{ backgroundColor: 'white' }}>Explore</Button></Link>
+                        <Link style={{ textDecoration: 'none' }} to="/explore"> <Button id="btn" color="secondary" aria-label="medium secondary button group" style={{ backgroundColor: 'white' }}>Explore</Button></Link>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6} style={verticalCenter} >

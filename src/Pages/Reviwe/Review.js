@@ -41,7 +41,7 @@ const Review = () => {
                     <br />
                     <textarea style={{ width: '50%' }} {...register("description")} placeholder="Description" />
                     <br />
-                    <input type="number" style={{ width: '50%' }}  {...register("ratings", { min:0 , max:5})} placeholder="ratings" />
+                    <input type="number" style={{ width: '50%' }}  {...register("ratings", { min: 0, max: 5 })} placeholder="ratings" />
                     <br />
                     <Button id="btn" variant="contained" sx={{ mt: 2 }} type="submit">Submit</Button>
                 </form>
@@ -61,11 +61,11 @@ const Review = () => {
                                     {review.description}
                                 </Typography>
                                 <Rating
-                                    sx={{color:"gold"}}
-                                    placeholderRating={3.5}
+                                    initialRating={review.ratings}
                                     readonly
                                 />
                             </CardContent>
+
                         </Card>
                     </Box>)
                 }

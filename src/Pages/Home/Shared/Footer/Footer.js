@@ -6,45 +6,45 @@ import "./Footer.css"
 
 const Footer = () => {
     return (
-        <Box sx={{ flexGrow: 1, mt: 2,bgcolor: 'success.main' }}>
+        <Box sx={{ flexGrow: 1, mt: 2, bgcolor: 'success.main' }}>
             <Grid container spacing={1}>
                 <Grid item xs={12} md={4} >
-                    <Typography id="btn" sx={{fontWeight:400}} variant="h5" component="div" gutterBottom>
+                    <Typography id="btn" sx={{ fontWeight: 400 }} variant="h5" component="div" gutterBottom>
                         SERVICES
                     </Typography>
                     <Box id="btn">
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Sale
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                        New Designs
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Quick Ship
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Gift Cards
-                    </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Sale
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            New Designs
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Quick Ship
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Gift Cards
+                        </Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={4}  >
                     <Typography id="btn" sx={{ fontWeight: 400 }} variant="h5" component="div" gutterBottom>
                         CATEGORIES
                     </Typography>
-                    <Box id="btn"> 
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Watches
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Clocks
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                        Watch Accessories
-                    </Typography>
-                    <Typography variant="h6" display="block" gutterBottom>
-                      More Watches
-                    </Typography>
-                    </Box>  
+                    <Box id="btn">
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Watches
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Clocks
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            Watch Accessories
+                        </Typography>
+                        <Typography variant="h6" display="block" gutterBottom>
+                            More Watches
+                        </Typography>
+                    </Box>
                 </Grid>
                 <Grid item xs={12} md={4}>
                     <p><i className="fab fa-facebook"></i></p>
