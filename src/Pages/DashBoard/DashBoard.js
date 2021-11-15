@@ -27,7 +27,7 @@ import ManageAllOrders from '../ManageOrders/ManageAllOrders';
 import AddProducts from '../AddProducts/AddProducts';
 import DashBoardHome from '../DashBoardHome/DashBoardHome';
 import AdminRoute from '../Login/AdminRoute/AdminRoute';
-import { bgcolor } from '@mui/system';
+
 
 const drawerWidth = 200;
 
@@ -46,8 +46,9 @@ function DashBoard(props) {
             <Toolbar />
             <Divider />
             <Link style={{ textDecoration: "none", color: 'red' }} to="/home"><Button color="inherit">Home</Button></Link> <br />
+            <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
             {!admin && <Box>
-                <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+
                 <Link style={{ textDecoration: "red", color: 'red' }} to="/myorders"><Button color="inherit">My Orders</Button></Link> <br />
                 <Link style={{ textDecoration: "none", color: 'red' }} to="/payment"><Button color="inherit">pay</Button></Link> <br /></Box>}
 
@@ -78,12 +79,13 @@ function DashBoard(props) {
             <AppBar
                 position="fixed"
 
-                sx={{ bgcolor:'gray',
+                sx={{
+                    bgcolor: 'gray',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                 
+
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -94,7 +96,7 @@ function DashBoard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography sx={{fontWeight:700}} variant="h6" noWrap component="div">
+                    <Typography sx={{ fontWeight: 700 }} variant="h6" noWrap component="div">
                         DashBoard
                     </Typography>
                 </Toolbar>
@@ -115,7 +117,7 @@ function DashBoard(props) {
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
-                        bgcolor:'gray',
+                        bgcolor: 'gray',
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >

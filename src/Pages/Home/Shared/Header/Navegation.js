@@ -26,21 +26,22 @@ const Navegation = () => {
 
           </IconButton>
           {user?.email ? <Typography id="btn" variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left', fontWeight: 700, color: 'white' }}>
-          <NavLink  style={{ textDecoration: "none", color: 'pink' }} to="/dashboard"><Button id="btn" color="inherit">Dashboard</Button></NavLink>
+            <NavLink style={{ textDecoration: "none", color: 'pink' }} to="/dashboard"><Button id="btn" color="inherit">Dashboard</Button></NavLink>
           </Typography> :
             <Typography id="btn" variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'left', fontWeight: 700, color: 'white' }}>
               Watches Store
             </Typography>}
 
-         
-           <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">
-           <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Home</Button>
-         </NavLink>
+
+          <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">
+            <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Home</Button>
+          </NavLink>
           {
-            user?.email ? <Button onClick={logOut} id="btn" sx={{ fontWeight: 700, color: 'white' }}>LogOut</Button>:
-            <NavLink style={{ textDecoration: "none" }} to="/login"><Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>
+            user?.email ? <Button onClick={logOut} id="btn" sx={{ fontWeight: 700, color: 'white' }}>LogOut</Button> :
+              <NavLink style={{ textDecoration: "none" }} to="/login"><Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>
 
           }
+
         </Toolbar>
       </AppBar>
     </Box>
