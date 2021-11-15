@@ -33,8 +33,6 @@ const Review = () => {
     }, [])
 
     return (
-        <>
-        <Navegation></Navegation>
         <Container>
             <Typography id="btn" sx={{ fontWeight: 500, fontSize: 40, color: 'orange' }} variant="h6">Please Give Reviews</Typography>
 
@@ -74,8 +72,6 @@ const Review = () => {
                 }
             </Box>
         </Container>
-        <Footer></Footer>
-        </>
     );
 };
 
