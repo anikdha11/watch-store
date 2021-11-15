@@ -50,7 +50,8 @@ function DashBoard(props) {
             {!admin && <Box>
 
                 <Link style={{ textDecoration: "red", color: 'red' }} to="/myorders"><Button color="inherit">My Orders</Button></Link> <br />
-                <Link style={{ textDecoration: "none", color: 'red' }} to="/payment"><Button color="inherit">pay</Button></Link> <br /></Box>}
+                <Link style={{ textDecoration: "none", color: 'red' }} to="/review"><Button color="inherit">Review</Button></Link> <br />
+                <Link style={{ textDecoration: "none", color: 'red' }} to="/payment"><Button color="inherit">pay</Button></Link></Box>}
 
             {admin && <Box>
                 <Link style={{ textDecoration: "none", color: 'red' }} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
