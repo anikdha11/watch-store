@@ -110,7 +110,7 @@ const Products = () => {
 
             <Typography id="btn" variant="h3" sx={{ color: "success.main", mt: 2, mb: 2 }}>WATCHES</Typography >
             {isLoading && <CircularProgress />}
-            <Grid container spacing={2} sx={{ mx: 0 }}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
                 {
                     products.slice(0, 6).map(product => <Product

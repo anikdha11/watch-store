@@ -14,7 +14,7 @@ const Product = ({ product }) => {
     return (
         <>
             <Grid item xs={12} sm={6} md={4}>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                     <CardMedia
 
                         sx={{ alignItems: 'center' }}

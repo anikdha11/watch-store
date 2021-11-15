@@ -6,8 +6,6 @@ import { Button, Container, Rating } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Footer from '../Home/Shared/Footer/Footer';
-import Navegation from '../Home/Shared/Header/Navegation';
 
 
 const Review = () => {
