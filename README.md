@@ -1,6 +1,6 @@
-# This is Watche Store website
+# This is Watch Store website
 
-* This Live is here [Watche Store](https://watches-store-6db58.web.app/).
+* This Live is here [Watch Store](https://watches-store-6db58.web.app/).
 
 * Here this you can see some Watche Store Details.
 
