@@ -80,17 +80,17 @@ const useFirebase = () => {
   }, [auth])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://secret-badlands-82308.herokuapp.com/users/${user.email}`)
       .then(res => res.json())
-      .then(data =>setAdmin(data.admin))
+      .then(data => setAdmin(data.admin))
   }, [user.email])
 
-  const logOut = (history,location) => {
+  const logOut = (history, location) => {
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
       const destination = location?.state?.from || '/'
-        history.replace(destination);
+      history.replace(destination);
     }).catch((error) => {
       // An error happened.
     })
@@ -100,7 +100,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('http://localhost:5000/users', {
+    fetch('https://secret-badlands-82308.herokuapp.com/users', {
       method: method,
       headers: {
         'content-type': 'application/json'

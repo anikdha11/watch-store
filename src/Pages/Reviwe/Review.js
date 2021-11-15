@@ -14,7 +14,7 @@ const Review = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://secret-badlands-82308.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submit successfully');
@@ -25,15 +25,15 @@ const Review = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/review")
+        fetch("https://secret-badlands-82308.herokuapp.com/review")
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
 
     return (
         <Container>
-            <Typography id="btn" sx={{fontWeight:500,fontSize:40,color:'orange'}} variant="h6">Please Give Reviews</Typography>
-            <p></p>
+            <Typography id="btn" sx={{ fontWeight: 500, fontSize: 40, color: 'orange' }} variant="h6">Please Give Reviews</Typography>
+
             <Box>
                 <form className="" onSubmit={handleSubmit(onSubmit)}>
 
@@ -41,11 +41,11 @@ const Review = () => {
                     <br />
                     <textarea style={{ width: '50%' }} {...register("description")} placeholder="Description" />
                     <br />
-                    <Button id="btn" variant="contained" sx={{mt:2}} type="submit">Submit</Button>
+                    <Button id="btn" variant="contained" sx={{ mt: 2 }} type="submit">Submit</Button>
                 </form>
             </Box>
             <Box>
-                <Typography id="btn" sx={{fontWeight:400,fontSize:40,color:'orange'}} variant="h6">Reviews here</Typography>
+                <Typography id="btn" sx={{ fontWeight: 400, fontSize: 40, color: 'orange' }} variant="h6">Reviews here</Typography>
 
                 {
                     reviews.map(review => <Box

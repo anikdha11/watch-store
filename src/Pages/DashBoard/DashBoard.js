@@ -26,6 +26,8 @@ import useAuth from "../../hooks/useAuth"
 import ManageAllOrders from '../ManageOrders/ManageAllOrders';
 import AddProducts from '../AddProducts/AddProducts';
 import DashBoardHome from '../DashBoardHome/DashBoardHome';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
+import { bgcolor } from '@mui/system';
 
 const drawerWidth = 200;
 
@@ -75,11 +77,13 @@ function DashBoard(props) {
             <CssBaseline />
             <AppBar
                 position="fixed"
-                sx={{
+
+                sx={{ bgcolor:'gray',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
+                 
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -90,7 +94,7 @@ function DashBoard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography sx={{fontWeight:700}} variant="h6" noWrap component="div">
                         DashBoard
                     </Typography>
                 </Toolbar>
@@ -111,6 +115,7 @@ function DashBoard(props) {
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
+                        bgcolor:'gray',
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
@@ -136,15 +141,15 @@ function DashBoard(props) {
                     <Route exact path={path}>
                         <DashBoardHome></DashBoardHome>
                     </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/manageAllOrders`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageAllOrders`}>
                         <ManageAllOrders></ManageAllOrders>
-                    </Route>
-                    <Route path={`${path}/addProducts`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/addProducts`}>
                         <AddProducts></AddProducts>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>

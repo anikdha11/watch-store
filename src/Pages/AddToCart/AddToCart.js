@@ -30,7 +30,7 @@ const AddToCart = () => {
         fetch(`https://secret-badlands-82308.herokuapp.com/products/${nameId}`)
             .then(res => res.json())
             .then(data => setSingle(data))
-    }, [])
+    }, [nameId])
     return (
         <>
         <Navegation></Navegation>

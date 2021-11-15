@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://secret-badlands-82308.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -30,21 +30,21 @@ const MakeAdmin = () => {
 
     return (
         <>
-           <Container>
-           <h1 id="btn">Welcome To Admin Dashboard</h1>
-            <h2>Make an Admin</h2>
-            <form onSubmit={handleAdminSubmit}>
-                <TextField
-                    sx={{ width: '50%' }}
-                    label="Email"
-                    type="email"
-                    onBlur={handleOnBlur}
-                    variant="outlined" />
+            <Container>
+                <h1 id="btn">Welcome To Admin Dashboard</h1>
+                <h2>Make an Admin</h2>
+                <form onSubmit={handleAdminSubmit}>
+                    <TextField
+                        sx={{ width: '50%' }}
+                        label="Email"
+                        type="email"
+                        onBlur={handleOnBlur}
+                        variant="outlined" />
                     <br />
-                <Button sx={{mt:2}} type="submit" variant="contained">Make Admin</Button>
-            </form>
-            {success && <Alert severity="success">Made Admin successfully!</Alert>}
-           </Container>
+                    <Button sx={{ mt: 2 }} type="submit" variant="contained">Make Admin</Button>
+                </form>
+                {success && <Alert severity="success">Made Admin successfully!</Alert>}
+            </Container>
         </>
     );
 };

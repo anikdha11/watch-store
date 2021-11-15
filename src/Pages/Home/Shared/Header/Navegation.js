@@ -36,9 +36,11 @@ const Navegation = () => {
            <NavLink style={{ textDecoration: "none", color: 'white', fontWeight: 700 }} to="/home">
            <Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Home</Button>
          </NavLink>
-        
-          {user?.email ? <Box><Button onClick={logOut} id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">LogOut</Button> <span id="btn">{user.displayName}</span></Box> :
-            <NavLink style={{ textDecoration: "none" }} to="/login"><Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>}
+          {
+            user?.email ? <Button onClick={logOut} id="btn" sx={{ fontWeight: 700, color: 'white' }}>LogOut</Button>:
+            <NavLink style={{ textDecoration: "none" }} to="/login"><Button id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Login</Button></NavLink>
+
+          }
         </Toolbar>
       </AppBar>
     </Box>

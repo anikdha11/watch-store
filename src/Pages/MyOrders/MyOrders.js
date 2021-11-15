@@ -1,4 +1,4 @@
-import { Button, Container,Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth'
@@ -8,16 +8,16 @@ import Navegation from '../Home/Shared/Header/Navegation';
 const MyOrders = () => {
     const [orders, setOrders] = useState([])
 
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user.email}`)
+        fetch(`https://secret-badlands-82308.herokuapp.com/order?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
-    }, [])
+    }, [user.email])
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://secret-badlands-82308.herokuapp.com/order/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -41,26 +41,26 @@ const MyOrders = () => {
 
     return (
         <>
-        <Navegation></Navegation>
-        <Container>
-            <Typography id="btn" sx={{color:"pink"}} variant="h3">My Orders</Typography>
+            <Navegation></Navegation>
+            <Container>
+                <Typography id="btn" sx={{ color: "pink" }} variant="h3">My Orders</Typography>
 
-            {
-                orders.map(order => <Container key={order._id}>
-                    
-                    <Box sx={{ mb:2,mt:4,mx:'auto'}} >
-                    <Box sx={{border:"1px solid gray",mb:5}}>
-                    <Typography id="btn" sx={{color:"pink"}} variant="h5">{order.watchName}</Typography>
-                    <Typography id="btn" sx={{color:"gray"}} variant="h5">{order.name}</Typography>
-                    <Typography id="btn" sx={{color:"gray"}} variant="body1">{order.email}</Typography>
-                    <Button onClick={() => handleDelete(order._id)} id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Delete</Button>
-                    </Box>
-                    </Box>
+                {
+                    orders.map(order => <Container key={order._id}>
 
-                </Container>)
-            }
-        </Container>
-      <Footer></Footer>
+                        <Box sx={{ mb: 2, mt: 4, mx: 'auto' }} >
+                            <Box sx={{ border: "1px solid gray", mb: 5 }}>
+                                <Typography id="btn" sx={{ color: "pink" }} variant="h5">{order.watchName}</Typography>
+                                <Typography id="btn" sx={{ color: "gray" }} variant="h5">{order.name}</Typography>
+                                <Typography id="btn" sx={{ color: "gray" }} variant="body1">{order.email}</Typography>
+                                <Button onClick={() => handleDelete(order._id)} id="btn" sx={{ fontWeight: 700, color: 'white' }} color="inherit">Delete</Button>
+                            </Box>
+                        </Box>
+
+                    </Container>)
+                }
+            </Container>
+            <Footer></Footer>
         </>
     );
 };
