@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Product from './product/Product';
-import Grid from '@mui/material/Grid';
-import { CircularProgress, Container, Typography } from '@mui/material';
-import useAuth from '../../../hooks/useAuth';
-
+import React, { useEffect, useState } from "react";
+import Product from "./product/Product";
+import Grid from "@mui/material/Grid";
+import { CircularProgress, Container, Typography } from "@mui/material";
+import useAuth from "../../../hooks/useAuth";
 
 // const products = [
 //     {
@@ -92,34 +91,37 @@ import useAuth from '../../../hooks/useAuth';
 //     }
 // ]
 
-
-
 const Products = () => {
-    const [products, setProducts] = useState([])
-    const { isLoading } = useAuth();
+  const [products, setProducts] = useState([]);
+  const { isLoading } = useAuth();
 
-    useEffect(() => {
-        fetch("https://secret-badlands-82308.herokuapp.com/products")
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [isLoading])
+  useEffect(() => {
+    fetch("https://assingment-12-mongo.vercel.app/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [isLoading]);
 
-
-    return (
-        <Container>
-
-            <Typography id="btn" variant="h3" sx={{ color: "success.main", mt: 2, mb: 2 }}>WATCHES</Typography >
-            {isLoading && <CircularProgress />}
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-
-                {
-                    products.slice(0, 6).map(product => <Product
-                        key={product._id}
-                        product={product}></Product>)
-                }
-            </Grid>
-        </Container>
-    );
+  return (
+    <Container>
+      <Typography
+        id="btn"
+        variant="h3"
+        sx={{ color: "success.main", mt: 2, mb: 2 }}
+      >
+        WATCHES
+      </Typography>
+      {isLoading && <CircularProgress />}
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {products.slice(0, 6).map((product) => (
+          <Product key={product._id} product={product}></Product>
+        ))}
+      </Grid>
+    </Container>
+  );
 };
 
 export default Products;
